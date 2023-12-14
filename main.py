@@ -43,16 +43,13 @@ def classifier(mat, model):
         pred : list of predicted labels
     '''
     if model=='SVM':
-        model = pickle.load(open("classification_model.pkl", "rb"))
+        model = pickle.load(open("gbc.pkl", "rb"))
         pred = model.predict(mat)
         
     elif model=='RF':
-        model = pickle.load(open("classification_model.pkl", "rb"))
+        model = pickle.load(open("rf.pkl", "rb"))
         pred = model.predict(mat)
         
-    elif model=='GBC':
-        model = pickle.load(open("classification_model.pkl", "rb"))
-        pred = model.predict(mat)
         
     else:
         raise Exception("Please select one of the three methods : SVM, RF, GBC")
@@ -75,7 +72,7 @@ y = data['Diabetes_012']
 
 
 # Predict labels using trained models
-models = ['SVM', 'RF', 'GBC']
+models = ['SVM', 'RF']
 for model in models:
 
     # Make prediction
